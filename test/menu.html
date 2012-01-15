@@ -1,0 +1,35 @@
+<!--
+To change this template, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html>
+	<head>
+		<title></title>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	</head>
+	<body>
+		<h1>toggleLoad Test</h1>
+		<h2>Menu</h2>
+		<ol class="menu">
+			<li><a href="subMenu1.tpl" class="add">+</a>&nbsp;Sub Menu 1</li>
+			<li><a href="subMenu2.tpl" class="add">+</a>&nbsp;Sub Menu 2</li>
+			<li><a href="subMenu3.tpl" class="add">+</a>&nbsp;Sub Menu 3</li>
+		</ol>
+		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+		<script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.17/jquery-ui.min.js"></script>
+		<script defer src="../toggleLoad.js"></script>
+		<script>
+			$(function () {
+				$.fn.toggleLoad.defaults.elementAdded = function (element) {
+					$(element).find('.menu .add').toggleLoad();
+					$(element).effect('highlight');
+				};
+				$('.menu .add').toggleLoad();
+				$test = $('<div><a href="" class="add">+</a></div>');
+				$test.toggleLoad();
+				console.log($test.toggleLoad.add($test.toggleLoad.defaults));
+			});
+		</script>
+	</body>
+</html>
