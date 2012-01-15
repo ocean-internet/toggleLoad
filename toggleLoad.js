@@ -24,7 +24,7 @@
 		};
 	};
 	// public function - add a div
-	$.fn.toggleLoad.add = function (options) {
+	$.fn.toggleLoad.add     = function (options) {
 		var $this    = $(this),
 			$parent  = $this.parent(),
 			$element = $(options.addElement);
@@ -44,7 +44,7 @@
 		);
 	};
 	// public function - add div callback
-	$.fn.toggleLoad.added = function(options, element) {
+	$.fn.toggleLoad.added   = function (options) {
 		var element = $(this).parent().find('.' + options.addElementClass);
 		$(this)
 		.removeClass(options.addLinkClass)
@@ -53,12 +53,12 @@
 		options.elementAdded(element);
 	};
 	// public function - remove a div
-	$.fn.toggleLoad.remove = function(options) {
+	$.fn.toggleLoad.remove  = function (options) {
 		$(this).parent().find('.' + options.addElementClass).remove();
 		$.fn.toggleLoad.removed.call(this, options);
 	};
 	// public function - remove div callback
-	$.fn.toggleLoad.removed = function(options) {
+	$.fn.toggleLoad.removed = function (options) {
 		var parent = $(this).parent();
 		$(this)
 		.removeClass(options.removeLinkClass)
