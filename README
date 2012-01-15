@@ -1,0 +1,37 @@
+********************************************************************************
+* toggleLoad.js - Jquery Plugin                                                *
+********************************************************************************
+
+JQuery Plugin - adds (& deletes) a remote snippet of HTML on clicking a link
+
+
+********************************************************************************
+* Options                                                                      *
+********************************************************************************
+
+attr:            'href',
+data:            null,
+addLinkClass:    'add',
+addLinkHtml:     '+',
+removeLinkClass: 'remove',
+removeLinkHtml:  '-',
+addElement:      '<div class="clearfix" />',
+addElementClass: 'toggleLoad',
+elementAdded:    function (element) { $(element).effect('highlight'); },
+elementRemoved:  function (parent)  { $(parent) .effect('highlight'); }
+
+
+********************************************************************************
+* Usage                                                                       *
+********************************************************************************
+
+<ol>
+	<li class="menu"><a href="/subMenu1.html" class="add">+</a>&nbsp;Top</li>
+	<li class="menu"><a href="/subMenu2.html" class="add">+</a>&nbsp;Menu</li>
+	<li class="menu"><a href="/subMenu3.html" class="add">+</a>&nbsp;Level</li>
+</ol>
+<script>
+$(function () {
+	$('.menu .add').toggleLoad();
+});
+</script>
