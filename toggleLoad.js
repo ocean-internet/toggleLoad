@@ -5,7 +5,9 @@
 		// build main options before element iteration
 		var opts = $.extend({}, $.fn.toggleLoad.defaults, options);
 		// Our plugin implementation code goes here.
-		return this.click(doToggleLoad);
+		return this.each(function () {
+			$(this).on('click', doToggleLoad);
+		});
 
 		function doToggleLoad() {
 			if(!$(this).hasClass('remove')) {
@@ -40,6 +42,7 @@
 				}
 				$parent.append($element);
 				$.fn.toggleLoad.added.call($this, options);
+				return $this;
 			}
 		);
 	};
@@ -51,11 +54,13 @@
 		.addClass(options.removeLinkClass)
 		.html(options.removeLinkHtml);
 		options.elementAdded(element);
+		return this;
 	};
 	// public function - remove a div
 	$.fn.toggleLoad.remove  = function (options) {
 		$(this).parent().find('.' + options.addElementClass).remove();
 		$.fn.toggleLoad.removed.call(this, options);
+		return this;
 	};
 	// public function - remove div callback
 	$.fn.toggleLoad.removed = function (options) {
@@ -65,6 +70,7 @@
 		.addClass(options.addLinkClass)
 		.html(options.addLinkHtml);
 		options.elementRemoved(parent);
+		return this;
 	};
 	// plugin defaults - added as a property on our plugin function
 	$.fn.toggleLoad.defaults = {

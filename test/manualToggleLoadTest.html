@@ -18,13 +18,9 @@ and open the template in the editor.
 		</ol>
 		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
 		<script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.17/jquery-ui.min.js"></script>
-		<script defer src="../toggleLoad.js"></script>
+		<script defer src="../toggleLoad2.js"></script>
 		<script>
 			$(function () {
-				$.fn.toggleLoad.defaults.elementAdded = function (element) {
-					$(element).find('.menu .add').toggleLoad();
-					$(element).effect('highlight');
-				};
 				$('.menu .add').toggleLoad();
 			});
 		</script>
